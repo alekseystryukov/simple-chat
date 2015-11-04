@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load i18n staticfiles %}
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Simple Chat{% endblock %}</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'simple_chat/css/base.css' %}" />
+
+    {% endblock head %}
+  </head>
+  <body>
+    {% block body %}
+        <nav >
+          <div class="container">
+            <h2>Simple Chat</h2>
+          </div>
+        </nav>
+        <div class="container">
+            <div class="chat-wrap row">
+                <div class="msg-wrap">
+                    <div class="media msg msg-template">
+                        <div class="media-body">
+                            <small class="pull-right time"><i class="fa fa-clock-o"></i> </small>
+                            <h5 class="media-heading"></h5>
+
+                            <small class="col-lg-10 text"></small>
+                        </div>
+                    </div>
+
+                </div>
+                {% if user.is_authenticated %}
+                <div class="send-wrap ">
+                    {{ form.name }}
+                    {{ form.message }}
+                </div>
+                <div class="btn-panel">
+                    <!--<a href="javascript:void(0)" class=" col-lg-3 btn   send-message-btn " role="button"><i class="fa fa-cloud-upload"></i> Add Files</a>-->
+                    <a href="javascript:void(0)" class=" col-lg-4 text-right btn   send-message-btn pull-right" role="button"><i class="fa fa-plus"></i> Send Message</a>
+                </div>
+                {% else %}
+                    <div class="alert alert-warning" role="alert" style="margin: 6px;">
+                        <a href='{% url "django.contrib.auth.views.login" %}' >Login</a> or
+                        <a href="{% url 'registration_register' %}" >{% trans 'Register' %}</a> to write
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="{% static 'simple_chat/js/base.js' %}"></script>
+        {% endblock scripts %}
+    {% endblock body %}
+  </body>
+</html>
