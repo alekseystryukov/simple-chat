@@ -20,7 +20,7 @@ To run, do the usual:
 
 2. Install dependencies:
 
-    pip install -r requirements/dev.txt
+    pip install -r requirements.txt
 
 3. Run migrations:
 
