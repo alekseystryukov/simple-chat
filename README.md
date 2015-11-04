@@ -10,16 +10,22 @@
 To run, do the usual:
 
 1. Create and activate a virtualenv:
+
     cd simple-chat/
+
     virtualenv -p /usr/bin/python2.7 venv
+
     source venv/bin/activate
 
 
 2. Install dependencies:
+
     pip install -r requirements/dev.txt
 
 3. Run migrations:
+
     python manage.py migrate
 
 4. Run Django dev server:
+
     python manage.py runserver
