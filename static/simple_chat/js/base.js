@@ -29,7 +29,6 @@ jQuery(document).ready(function($) {
 
         $.get('/chat/get_messages/' + last_message_id + '/',
             function(data){
-                console.log(data);
                 if(data.last_message_id){
                     last_message_id = data.last_message_id
                 }

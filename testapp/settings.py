@@ -99,6 +99,10 @@ IMAGE_UPLOAD_PATH = 'img/%Y/%m/%d'
 
 import sys
 
+log_dir = os.path.join(BASE_DIR, 'log')
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -106,7 +110,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(os.path.join(BASE_DIR, 'log'), 'messages.log'),
+            'filename': os.path.join(log_dir, 'messages.log'),
         },
         'console': {
             'level': 'INFO',
