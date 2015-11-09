@@ -26,7 +26,7 @@ class Message:
         Method that returns the message data in format suited for json.dumps function
         Return: dict: message data that will be send to chat message recipients
         """
-        return {'id': self.id, 'name': self.name, 'message': self.message, 'time': self.time.strftime('%-d %b %Y %H:%M:%S')}
+        return {'id': self.id, 'name': self.name, 'message': self.message, 'time': self.time.strftime('%d %b %Y %H:%M:%S')}
 
     def __init__(self, **kwargs):
         self.id = self.get_id()
